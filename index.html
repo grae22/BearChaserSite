@@ -24,7 +24,7 @@
           var password = $('#password').val();
         
           $.post(
-            '/BearChaserAPI/api/users/register',
+            'https://bearchaser.azurewebsites.net/api/users/register',
             { 'username': username, 'password': password },
             function () { alert('Registered'); });
         });
@@ -35,7 +35,7 @@
           var password = $('#password').val();
         
           $.post(
-            '/BearChaserAPI/api/users/login',
+            'https://bearchaser.azurewebsites.net/api/users/login',
             { 'username': username, 'password': password },
             function (token)
             {
@@ -51,7 +51,7 @@
           var frequency = 1;
         
           $.ajax({
-            url: '/BearChaserAPI/api/goals/create',
+            url: 'https://bearchaser.azurewebsites.net/api/goals/create',
             type: 'POST',
             headers: { 'auth': document.cookie },
             data: { 'Id': 0, 'Name': name, 'Period': period, 'FrequencyWithinPeriod': frequency },
@@ -73,7 +73,7 @@
       function GetAndPopulateGoals()      
       {
         $.ajax({
-          url: '/BearChaserAPI/api/goals',
+          url: 'https://bearchaser.azurewebsites.net/api/goals',
           type: 'GET',
           headers: { 'auth': document.cookie },
           contentType: 'application/json; charset=utf-8',
@@ -104,7 +104,7 @@
       function CreateGoalAttempt(goalId)
       {
         $.ajax({
-          url: '/BearChaserAPI/api/goalAttempts/create',
+          url: 'https://bearchaser.azurewebsites.net/api/goalAttempts/create',
           type: 'POST',
           headers: { 'auth': document.cookie },
           data: { 'Id': 0, 'GoalId': goalId, 'Timestamp': null },
